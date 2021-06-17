@@ -8,12 +8,12 @@ At the end you have this:
 ![Illustration 1](./Img/import001.png)  
 
 
-![Illustration 2](./Img/import02.png)  
+![Illustration 2](./Img/import002.png)  
   
 
 Unfortunately, someone adds a new IP on your server, you know, the IP change so the new one needs to be added, but nobody remember to tell you so it's added directly in the portal T_T:
 
-![Illustration 3](./Img/import03.png)  
+![Illustration 3](./Img/import003.png)  
 
 Ok no panic, let's see how to fix it: 
 
