@@ -15,7 +15,7 @@ Now things changed and you and your team have decided to change the lifecycle of
 
 ![Illustration 3](./Img/move003.png)  
 
-Let's say we have a module ready to manage database, a simple thing really, you know, demo stuff... ^^
+Let's say we have a module ready to manage databases, a simple thing really, you know, demo stuff... ^^
 
 
 ```bash
