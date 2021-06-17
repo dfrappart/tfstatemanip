@@ -58,7 +58,7 @@ module "MySQLDBs" {
 
 ```
 
-What happen if we just try a `terraform plan` (well since you're adding amodule, you need to run init first, but everyone knows that right ^^):
+What happens if we just try a `terraform plan` (well since you're adding a module, you need to run init first, but everyone knows that right ^^):
 
 ```powershell
 
@@ -184,7 +184,7 @@ Would move "module.MySQL.azurerm_mysql_database.MySQLDB[0]" to "module.MySQLDBs.
 
 ```
 
-looks good, let's try it for real now:
+Looks good, let's try it for real now:
 
 ```powershell
 
@@ -337,7 +337,7 @@ Plan: 3 to add, 0 to change, 3 to destroy.
 
 ```
 
-Much better, only 3 changes, but that's because the database name are changing, we can fix it easily like that:
+Much better, only 3 changes, but that's because the databases names are changing, we can fix it easily like that:
 
 ![Illustration 3](./Img/move005.png) 
   
