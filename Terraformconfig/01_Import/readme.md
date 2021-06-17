@@ -72,7 +72,7 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 ```
 
-It's nice because we can plan, but since it already exist, an apply will fail:
+It's nice because we can plan, but since it already exists, `terraform apply` will fail:
 
 ```powershell
 
@@ -90,7 +90,7 @@ module.MySQL.azurerm_mysql_firewall_rule.singleIP[2]: Creating...
 
 Right, told you!
 So now, we need to import the resource.
-We can refer to the <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_firewall_rule" target="_blank"> **terraform documentation** </a> to have details on the syntax for importation:
+We can refer to the <a href="https://www.terraform.io/docs/cli/import/index.html" target="_blank"> **terraform documentation** </a> to have details on the syntax for importation:
 
 ```bash
 
@@ -98,7 +98,7 @@ terraform import azurerm_mysql_firewall_rule.rule1 /subscriptions/00000000-0000-
 
 ```
 
-We could guess the path for the resource in the terraform config, but to be sure, let's use the infamous terraform state commands:
+We could guess the path for the resource in the terraform config, but to be sure, let's use the infamous terraform state command:
 
 ```powershell
 
@@ -110,8 +110,8 @@ module.MySQL.azurerm_mysql_firewall_rule.singleIP[1]
 
 ```
 
-In our case, we are adding an object to the list module.MySQL.azurerm_mysql_firewall_rule.singleIP, so the new one will be addressed as module.MySQL.azurerm_mysql_firewall_rule.singleIP[2] (yes index start at 0).
-But let's look at the details, you know to be hyper sure:
+In our case, we are adding an object to the list module.MySQL.azurerm_mysql_firewall_rule.singleIP, so the new one will be addressed as module.MySQL.azurerm_mysql_firewall_rule.singleIP[2] (yes index starts at 0).
+But let's look at the details, you know, to be hyper sure:
 
 ```powershell
 
@@ -128,7 +128,7 @@ resource "azurerm_mysql_firewall_rule" "singleIP" {
 
 ```
 
-looks good, it seems to have everything wer'e looking for, so now we are going to import the resource, using the proper resource path:
+Looks good, it seems to have everything wer'e looking for, so now we are going to import the resource, using the proper resource path:
 
 ```powershell
 
@@ -145,7 +145,7 @@ your Terraform state and will henceforth be managed by Terraform.
 
 ```
 
-Now we can run `terraform state list` again again: 
+Now we can run `terraform state list` again: 
 
 ```powershell
 
