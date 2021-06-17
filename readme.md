@@ -1,7 +1,7 @@
 # Terraform State mnaipulation lab
 
 - This repository contains material for a terraform state manipulation lab
-- It is divided in 2 mains part:
+- It is divided in 2 mains parts:
     - a **Terraformconfig** folder containing, as the name implies, terraform configuration to provision databricks related resources
     - a **Pipelines** folder containing yaml definition for build pipeline
 
