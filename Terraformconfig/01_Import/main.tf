@@ -96,6 +96,7 @@ module "MySQL" {
   ThreatAlertEmail                    = ["david@teknews.cloud"]
   ThreatAlertTargetStorageKey         = data.azurerm_storage_account.STALog.primary_access_key 
   ThreatAlertTargetEP                 = data.azurerm_storage_account.STALog.primary_blob_endpoint
+  MySQLDbList                         = var.MySQLDbList
   
   MySQLADAdminObjectId                = "546e2d3b-450e-4049-8f9c-423e1da3444c"
   

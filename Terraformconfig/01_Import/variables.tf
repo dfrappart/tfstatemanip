@@ -107,3 +107,10 @@ variable "SubsetupKey" {
   description                     = "State key"
 }
 
+######################################################
+# Database 
+variable "MySQLDbList" {
+  type        = list
+  description = "List of MySQL databases names."
+  default     = ["defaultdbrws"]
+}
