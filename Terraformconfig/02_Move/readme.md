@@ -3,21 +3,18 @@
 ## Scenario description
 
 You built an Azure environment throught terraform with a custom module.
-At the end you have this: 
-
+At the end you have this:  
+  
 ![Illustration 1](./Img/move001.png)  
-
-
+  
 ![Illustration 2](./Img/move002.png)  
   
-
-Now things changed and you and your team have decided to change the lifecycle of the database, which is not inside the <a href="https://github.com/dfrappart/Terra-AZModuletest/blob/master/Custom_Modules/PaaS_SRVDB_mySql/main.tf" target="_blank"> **mysql server module** </a>:
-
+Now things changed and you and your team have decided to change the lifecycle of the database, which is not inside the <a href="https://github.com/dfrappart/Terra-AZModuletest/blob/master/Custom_Modules/PaaS_SRVDB_mySql/main.tf" target="_blank"> **mysql server module** </a>:  
+  
 ![Illustration 3](./Img/move003.png)  
-
-Let's say we have a module ready to manage databases, a simple thing really, you know, demo stuff... ^^
-
-
+  
+Let's say we have a module ready to manage databases, a simple thing really, you know, demo stuff... ^^  
+  
 ```bash
 
 ###################################################################################
@@ -57,9 +54,9 @@ module "MySQLDBs" {
 }
 
 ```
-
+  
 What happens if we just try a `terraform plan` (well since you're adding a module, you need to run init first, but everyone knows that right ^^):
-
+  
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\02_Move> terraform init
@@ -141,7 +138,8 @@ module.MySQL.azurerm_mysql_server.MySQLServer
 =================================Truncated=================================
 ```
 
-To be sure, have a look at the details of `module.MySQL.azurerm_mysql_database.MySQLDB[0]`
+To be sure, have a look at the details of `module.MySQL.azurerm_mysql_database.MySQLDB[0]`  
+
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\02_Move> terraform state show module.MySQL.azurerm_mysql_database.MySQLDB[0]
@@ -156,9 +154,9 @@ resource "azurerm_mysql_database" "MySQLDB" {
 }
 
 ```
-
-And it's the same as the one in the plan, without surprise, except we don't have the resource id yet in the plan:
-
+  
+And it's the same as the one in the plan, without surprise, except we don't have the resource id yet in the plan:  
+  
 ```powershell
 
   # module.MySQLDBs.azurerm_mysql_database.MySQLDB[0] will be created
@@ -172,20 +170,22 @@ And it's the same as the one in the plan, without surprise, except we don't have
     }
 
 ```
-
+  
 Ok, now we have a plan with a set of databases to be created with a new module, except the databases already in the portal and in the state at **another path**.
-So this seems a perfect use case for `terraform state mv`
-Let's proceed:
 
+So this seems a perfect use case for `terraform state mv`
+
+Let's proceed:  
+  
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\02_Move> terraform state mv -dry-run module.MySQL.azurerm_mysql_database.MySQLDB[0] module.MySQLDBs.azurerm_mysql_database.MySQLDB[0]
 Would move "module.MySQL.azurerm_mysql_database.MySQLDB[0]" to "module.MySQLDBs.azurerm_mysql_database.MySQLDB[0]"
 
 ```
-
-Looks good, let's try it for real now:
-
+  
+Looks good, let's try it for real now:  
+  
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\01_Import> terraform state list
@@ -196,10 +196,9 @@ module.MySQLDBs.azurerm_mysql_database.MySQLDB[2]
 =================================Truncated=================================
 
 ```
-
-
-What about a `terraform plan`: 
-
+  
+What about a `terraform plan`:  
+  
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\01_Import> terraform plan      
@@ -280,17 +279,15 @@ Plan: 6 to add, 0 to change, 3 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 
 ```
-
+  
 Hum!
   
-Not so good, let's see why: 
+Not so good, let's see why:  
 
 First the server module is still trying to create databases because we did not reflect that in the code. It's a simple matter, just put that in comment:
   
 ![Illustration 3](./Img/move004.png)  
   
-
-
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\01_Import> terraform plan
@@ -336,14 +333,13 @@ Terraform will perform the following actions:
 Plan: 3 to add, 0 to change, 3 to destroy.
 
 ```
-
-Much better, only 3 changes, but that's because the databases names are changing, we can fix it easily like that:
-
-![Illustration 3](./Img/move005.png) 
   
-
-And now the great moment:
-
+Much better, only 3 changes, but that's because the databases names are changing, we can fix it easily like that:  
+  
+![Illustration 3](./Img/move005.png)  
+  
+And now the great moment:  
+  
 ```powershell
 
 PS C:\Users\jubei.yagyu\statemanip\Terraformconfig\01_Import> terraform plan
@@ -365,9 +361,9 @@ No changes. Your infrastructure matches the configuration.
 Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
 
 ```
-
-and again, just run a `terraform apply`
-
+  
+and again, just run a `terraform apply`  
+  
 ```powershell
 
 module.MySQLPWD_to_KV.random_password.TerraRandomPWD: Refreshing state... [id=none]
