@@ -173,25 +173,6 @@ output "ServiceHealthAlertCriteria" {
   value                   = module.ObservabilityConfig.ServiceHealthAlertCriteria
 }
 
-##############################################################
-#Resources health Alerts Output
-
-output "ResourcesHealthAlertName" {
-
-  value                   = module.ObservabilityConfig.ResourcesHealthAlertName
-}
-
-output "ResourcesHealthAlertId" {
-
-  value                   = module.ObservabilityConfig.ResourcesHealthAlertId
-  sensitive               = true
-}
-
-output "ResourcesHealthAlertCriteria" {
-
-  value                   = module.ObservabilityConfig.ResourcesHealthAlertCriteria
-}
-
 ######################################################################
 # Key Vault Output
 

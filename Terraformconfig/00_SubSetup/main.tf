@@ -85,11 +85,7 @@ module "ResourceGroup" {
   #Module variable      
   RGSuffix                                = var.KVSuffix
   RGLocation                              = var.AzureRegion
-  ResourceOwnerTag                        = var.ResourceOwnerTag
-  CountryTag                              = var.CountryTag
-  CostCenterTag                           = var.CostCenterTag
-  EnvironmentTag                          = var.Environment
-  Project                                 = var.Project
+  DefaultTags                             = var.DefaultTags
 
 }
 

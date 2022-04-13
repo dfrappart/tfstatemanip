@@ -7,3 +7,5 @@ ASCPricingTier                      = "Standard"
 IsDeploymentTypeGreenField           = true
 ASCContactMail                      = "david@teknews.cloud"
 SubContactList                      = "david@teknews.cloud"
+
+Environment = "dev"

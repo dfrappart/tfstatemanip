@@ -67,28 +67,28 @@ variable "KVSuffix" {
 variable "Secretperms_TFApp_AccessPolicy" {
   type                            = list
   description                     = "The authorization on the secret for the Access policy"
-  default                         = ["backup","purge","recover","restore","get","list","set","delete"]
+  default                         = ["Backup","Purge","Recover","Restore","Get","List","Set","Delete"]
 
 }
 
 variable "Certperms_TFApp_AccessPolicy" {
   type                            = list
   description                     = "The authorization on the secret for the Access policy"
-  default                         = ["backup","deleteissuers","get","getissuers","listissuers","managecontacts","manageissuers","purge","recover","restore","setissuers","list","update", "create", "import", "delete"]
+  default                         = ["Backup","DeleteIssuers","Get","GetIssuers","ListIssuers","ManageContacts","ManageIssuers","Purge","Recover","Restore","SetIssuers","List","Update", "Create", "Import", "Delete"]
 
 }
 
 variable "Secretperms_DTBSAdmins_AccessPolicy" {
   type                            = list
   description                     = "The authorization on the secret for the Access policy to grant to Databricks Admins"
-  default                         = ["backup","purge","recover","restore","get","list","set","delete"]
+  default                         = ["Backup","Purge","Recover","Restore","Get","List","Set","Delete"]
 
 }
 
 variable "Certperms_DTBSAdmins_AccessPolicy" {
   type                            = list
   description                     = "The authorization on the secret for the Access policy to grant to Databricks Admins"
-  default                         = ["backup","deleteissuers","get","getissuers","listissuers","managecontacts","manageissuers","purge","recover","restore","setissuers","list","update", "create", "import", "delete"]
+  default                         = ["Backup","DeleteIssuers","Get","GetIssuers","ListIssuers","ManageContacts","ManageIssuers","Purge","Recover","Restore","SetIssuers","List","Update", "Create", "Import", "Delete"]
 
 }
 
@@ -174,7 +174,25 @@ variable "Environment" {
 }
 
 
+variable "DefaultTags" {
+  type                                  = map
+  description                           = "Define a set of default tags"
+  default                               = {
+    ResourceOwner                       = "That would be me"
+    Country                             = "fr"
+    CostCenter                          = "labtf"
+    Project                             = "tfmodule"
+    Environment                         = "lab"
+    ManagedBy                           = "Terraform"
 
+  }
+}
+
+variable "ExtraTags" {
+  type                                  = map
+  description                           = "Define a set of additional optional tags."
+  default                               = {}
+}
 
 ##############################################################
 #Variable Observability basics
