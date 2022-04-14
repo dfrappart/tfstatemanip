@@ -7,12 +7,12 @@ terraform {
   backend "azurerm" {}
   required_providers {
     azurerm = {}
-    azuread = {}
+    #azuread = {}
 
 
   }
 }
-
+/*
 provider "azuread" {
   
   client_id                                = var.AzureADClientID
@@ -22,7 +22,7 @@ provider "azuread" {
   #features {}
   
 }
-
+*/
 provider "azurerm" {
   subscription_id                          = var.AzureSubscriptionID
   client_id                                = var.AzureClientID

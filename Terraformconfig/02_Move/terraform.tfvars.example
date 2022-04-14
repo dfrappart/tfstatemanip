@@ -9,9 +9,6 @@ AzureClientID                           = ""
 AzureClientSecret                       = ""
 AzureTenantID                           = ""
 
-AzureADClientID                         = ""
-AzureADClientSecret                     = ""
-
 SubsetupSTOAName                        = ""
 SubsetupContainerName                   = ""
 SubsetupKey                             = ""
