@@ -10,10 +10,3 @@ AzureClientID                       = ""
 AzureClientSecret                   = ""
 AzureTenantID                       = ""
 
-
-
-#Observability Basics variables
-ASCPricingTier                      = "Standard"
-IsDeploymentTypeGreenField           = true
-ASCContactMail                      = ""
-SubContactList                      = ""
