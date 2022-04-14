@@ -4,7 +4,7 @@
 
 terraform {
   
-  #backend "azurerm" {}
+  backend "azurerm" {}
   required_providers {
     azurerm = {}
     azuread = {}
@@ -52,11 +52,7 @@ module "ResourceGroup" {
   #Module variable      
   RGSuffix                                = "cloudouest1"
   RGLocation                              = var.AzureRegion
-  ResourceOwnerTag                        = var.ResourceOwnerTag
-  CountryTag                              = var.CountryTag
-  CostCenterTag                           = var.CostCenterTag
-  EnvironmentTag                          = var.Environment
-  Project                                 = var.Project
+  DefaultTags                             = var.DefaultTags
 
 }
 

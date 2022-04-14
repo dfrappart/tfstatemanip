@@ -80,7 +80,25 @@ variable "ResourcesSuffix" {
   default                         = "dtbk"
 }
 
+variable "DefaultTags" {
+  type                                  = map
+  description                           = "Define a set of default tags"
+  default                               = {
+    ResourceOwner                       = "That would be me"
+    Country                             = "fr"
+    CostCenter                          = "labtf"
+    Project                             = "tfmodule"
+    Environment                         = "lab"
+    ManagedBy                           = "Terraform"
 
+  }
+}
+
+variable "ExtraTags" {
+  type                                  = map
+  description                           = "Define a set of additional optional tags."
+  default                               = {}
+}
 
 
 ######################################################

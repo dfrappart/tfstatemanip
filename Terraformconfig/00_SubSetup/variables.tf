@@ -228,3 +228,16 @@ variable "SubContactList" {
 
 
 }
+
+
+variable "NWLocationsList" {
+  type    = list
+  default = [
+    "francecentral",
+    "westeurope",
+    "northeurope",
+    "swedencentral"
+
+  ]
+
+}
